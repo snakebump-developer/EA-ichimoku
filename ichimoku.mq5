@@ -95,6 +95,13 @@ datetime GetCurrentH1CandleTime()
 //+------------------------------------------------------------------+
 int OnInit()
 {
+   // Clean up any existing chart objects from previous runs
+   ObjectsDeleteAll(0, "Info_");
+   ObjectsDeleteAll(0, "Profit_");
+   ObjectsDeleteAll(0, "InfoBG");
+   ObjectsDeleteAll(0, "ResetButton");
+   ChartRedraw();
+   
    ichimoku_handle_m5 = iIchimoku(_Symbol, PERIOD_M5, Tenkan_period, Kijun_period, Senkou_SpanB_period);
    ichimoku_handle_m15 = iIchimoku(_Symbol, PERIOD_M15, Tenkan_period, Kijun_period, Senkou_SpanB_period);
    ichimoku_handle_h1 = iIchimoku(_Symbol, PERIOD_H1, Tenkan_period, Kijun_period, Senkou_SpanB_period);
@@ -1363,10 +1370,10 @@ void CreateLabel(string name, int x, int y, string text, string font, int size, 
    if(ObjectFind(0, name) < 0)
    {
       ObjectCreate(0, name, OBJ_LABEL, 0, 0, 0);
-      ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_RIGHT_LOWER);
-      ObjectSetInteger(0, name, OBJPROP_ANCHOR, ANCHOR_RIGHT_LOWER);
    }
    
+   ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_RIGHT_LOWER);
+   ObjectSetInteger(0, name, OBJPROP_ANCHOR, ANCHOR_RIGHT_LOWER);
    ObjectSetInteger(0, name, OBJPROP_XDISTANCE, x);
    ObjectSetInteger(0, name, OBJPROP_YDISTANCE, y);
    ObjectSetString(0, name, OBJPROP_TEXT, text);
