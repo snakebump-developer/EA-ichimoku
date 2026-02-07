@@ -1040,7 +1040,7 @@ void CreateInfoBackground(int x_start, int y_start, int width, int height)
       ObjectCreate(0, bg_name, OBJ_RECTANGLE_LABEL, 0, 0, 0);
    }
    
-   ObjectSetInteger(0, bg_name, OBJPROP_CORNER, CORNER_LEFT_LOWER);
+   ObjectSetInteger(0, bg_name, OBJPROP_CORNER, CORNER_RIGHT_LOWER);
    ObjectSetInteger(0, bg_name, OBJPROP_XDISTANCE, x_start);
    ObjectSetInteger(0, bg_name, OBJPROP_YDISTANCE, y_start + height);
    ObjectSetInteger(0, bg_name, OBJPROP_XSIZE, width);
@@ -1065,7 +1065,7 @@ void CreateResetButton(int x, int y)
       ObjectCreate(0, button_name, OBJ_BUTTON, 0, 0, 0);
    }
    
-   ObjectSetInteger(0, button_name, OBJPROP_CORNER, CORNER_LEFT_LOWER);
+   ObjectSetInteger(0, button_name, OBJPROP_CORNER, CORNER_RIGHT_LOWER);
    ObjectSetInteger(0, button_name, OBJPROP_XDISTANCE, x);
    ObjectSetInteger(0, button_name, OBJPROP_YDISTANCE, y);
    ObjectSetInteger(0, button_name, OBJPROP_XSIZE, 120);
@@ -1363,8 +1363,8 @@ void CreateLabel(string name, int x, int y, string text, string font, int size, 
    if(ObjectFind(0, name) < 0)
    {
       ObjectCreate(0, name, OBJ_LABEL, 0, 0, 0);
-      ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_LEFT_LOWER);
-      ObjectSetInteger(0, name, OBJPROP_ANCHOR, ANCHOR_LEFT_LOWER);
+      ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_RIGHT_LOWER);
+      ObjectSetInteger(0, name, OBJPROP_ANCHOR, ANCHOR_RIGHT_LOWER);
    }
    
    ObjectSetInteger(0, name, OBJPROP_XDISTANCE, x);
